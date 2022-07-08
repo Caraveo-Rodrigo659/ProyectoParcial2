@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Gallery</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container px-4 px-lg-5">
+        <img src="/imagen/Logo.png" alt="" />
+        <a class="navbar-brand" href="#!">TAT</a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/index.html"
+                >Inicio</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!">Tus cursos</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                id="navbarDropdown"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Categorias</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="/Categorias/todas.html"
+                    >Todos los cursos</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="/Categorias/ingles.html"
+                    >Ingles</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/Categorias/programacion.html"
+                    >Programación</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/Categorias/mat.html"
+                    >Matemáticas</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!">Certificados</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Buscar"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Buscar
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <h3 class="heading">Bienvenido @Usuario</h3>
+    
+    <div class="container">
+      <div class="main-video">
+        <div class="video">
+          <video
+            src="video/y2mate.com - A1 Inglés Básico Introducción Basic English Introduction_480p.mp4"
+            controls
+            muted
+            autoplay
+          ></video>
+          <h3 class="title">01. Introducción</h3>
+        </div>
+      </div>
+      <div class="video-list">
+        <div class="vid active">
+          <video src="video/image3.mp4" muted></video>
+          <h3 class="title">02. Metodos de principales de ingles</h3>
+        </div>
+        <div class="vid">
+          <video src="video/image5.mp4" muted></video>
+          <h3 class="title">03. Clase 1</h3>
+        </div>
+        <div class="vid">
+          <video src="video/image6.mp4" muted></video>
+          <h3 class="title">04. Clase 3</h3>
+        </div>
+        <div class="vid">
+          <video src="video/image6.mp4" muted></video>
+          <h3 class="title">05. Clase 4</h3>
+        </div>
+        <div class="vid">
+          <video src="video/image6.mp4" muted></video>
+          <h3 class="title">06. Clase 5</h3>
+        </div>
+        <div class="vid">
+          <video src="video/image6.mp4" muted></video>
+          <h3 class="title">07. Clase 5</h3>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="py-5 bg-dark">
+      <div class="container"><p class="m-0 text-center text-white">Jorge Eduardo Cristobal Hernandez</p></div>
+      <div class="container"><p class="m-0 text-center text-white">Rodrigo Caraveo Moreno</p></div>
+      <div class="container"><p class="m-0 text-center text-white">Octavio Buenfil Cervantes</p></div>
+      <br>
+      <div class="container"><p class="m-0 text-center text-white">Copyright &copy; TAT</p></div>
+  </footer>
+
+    <script>
+      let listVideo = document.querySelectorAll(".video-list .vid");
+      let mainVideo = document.querySelector(".main-video video");
+      let title = document.querySelector(".main-video .title");
+
+      listVideo.forEach((video) => {
+        video.onclick = () => {
+          listVideo.forEach((vid) => vid.classList.remove("active"));
+          video.classList.add("active");
+          if (video.classList.add("active")) {
+            let src = video.children[0].getAttribute("src");
+            mainVideo.src = src;
+            let text = video.children[1].innerHTML;
+            title.innerHTML = text;
+          }
+        };
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+  
+</html>
